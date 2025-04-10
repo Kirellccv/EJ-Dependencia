@@ -1,0 +1,28 @@
+classDiagram
+    class Motor {
+        -String tipo
+        -int potencia
+        +Motor(tipo: String, potencia: int)
+        +encender()
+        +apagar()
+        +mostrarEspecificaciones()
+    }
+    
+    class Automovil {
+        -String marca
+        -String modelo
+        -Motor motor
+        +Automovil(marca: String, modelo: String, motor: Motor)
+        +arrancar()
+        +detener()
+        +mostrarInformacion()
+    }
+    
+    Automovil ..> Motor : depende >
+    
+    class EjemploDependencia {
+        +main(args: String[])
+    }
+    
+    EjemploDependencia ..> Automovil : crea
+    EjemploDependencia ..> Motor : crea
